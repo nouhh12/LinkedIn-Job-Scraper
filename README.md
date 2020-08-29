@@ -18,3 +18,5 @@ In the case that no offers are available for the user’s query then a text is d
 Proceeding from there, the Selenium driver is used yet again to open the website Indeed, where the company name of each offer we retrieved is sent to. This step is done to scrape the rating of the companies and number of reviews given to each company, which we then add with the rest of the data initially retrieved.
 
 Finally, all gathered information is written and saved in either a MySQL table or a Microsoft Excel sheet consisting of 6 columns – Company name, Job Offer, Date of Offer, Rating, Number of Reviews, Link – while the rows depend on the number of jobs we found at the time of searching. If the user decides to save in Microsoft Excel the Excel sheet is saved and opened as the last step in the app.
+
+Disclaimer: Total commits to project are much more, but due to an error while pushing the commit number decreased, so to check all the commits please take a look at the activity page found on project overview. Link: https://gitlab.com/nouh12/linkedin-job-scraper/activity
