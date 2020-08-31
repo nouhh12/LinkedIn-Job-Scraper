@@ -16,8 +16,6 @@ class Locater:
         #Searching in linkedin for given job title and location
         driver.get("https://www.linkedin.com/jobs/search?keywords="+job_title+"&location="+desired_location)
         
-        #Give time for the web page to load before scraping 
-        time.sleep(2)
         try:
             #Scraping the web page for job offer, company name, date of offer and link to the offer using XPath of each variable wanted 
             job_offer=driver.find_elements_by_xpath('//h3[@class="result-card__title job-result-card__title"]')
@@ -145,14 +143,15 @@ class Locater:
         wb.save("jobs.xls")
         #Open the saved excel sheet by looking for the file in current working directory
         os.startfile(os.getcwd()+"\\jobs.xls")  
-                 
+
+Images_Folder_Path="C:\\Users\\Nouh\\eclipse-workspace\\LinkedIn Job Scraper\\Images"                 
 class GUI:
     def init(self):
         #Design of GUI        
         #Path of images used in place of labels and button        
-        job_path=os.getcwd()+"\\job_button.png"  
-        location_path=os.getcwd()+"\\location_button.png"  
-        nextbutton_path=os.getcwd()+"\\next_button.png"  
+        job_path=Images_Folder_Path+"\\job_button.png"  
+        location_path=Images_Folder_Path+"\\location_button.png"  
+        nextbutton_path=Images_Folder_Path+"\\next_button.png"  
         window=tkinter.Tk()
         #Position and size of window
         window.geometry("280x110+300+300")
@@ -182,10 +181,10 @@ class GUI:
         #Frame to place radio buttons used in displaying sorting options
         radio_var=StringVar(window1)
         radio_var.set("Rating")
-        sortbutton_path=os.getcwd()+"\\sort_button.png"
-        ratingbutton_path=os.getcwd()+"\\rating_button.png"
-        datebutton_path=os.getcwd()+"\\date_button.png"
-        nextbutton_path=os.getcwd()+"\\next_button.png" 
+        sortbutton_path=Images_Folder_Path+"\\sort_button.png"
+        ratingbutton_path=Images_Folder_Path+"\\rating_button.png"
+        datebutton_path=Images_Folder_Path+"\\date_button.png"
+        nextbutton_path=Images_Folder_Path+"\\next_button.png" 
         #Linking images to tkinter to be used on radio buttons
         sortbutton_image=tkinter.PhotoImage(file=sortbutton_path)
         ratingbutton_image=tkinter.PhotoImage(file=ratingbutton_path)
@@ -208,10 +207,10 @@ class GUI:
         #Frame to place radio buttons used in displaying saving options
         saving_var=StringVar(window2)
         saving_var.set("MySQL")
-        search_path=os.getcwd()+"\\search_button.png"
-        savebutton_path=os.getcwd()+"\\save_button.png"
-        mysqlbutton_path=os.getcwd()+"\\mySQL_button.png"
-        excelbutton_path=os.getcwd()+"\\excel_button.png"
+        search_path=Images_Folder_Path+"\\search_button.png"
+        savebutton_path=Images_Folder_Path+"\\save_button.png"
+        mysqlbutton_path=Images_Folder_Path+"\\mySQL_button.png"
+        excelbutton_path=Images_Folder_Path+"\\excel_button.png"
         #Linking images to tkinter to be used on radio buttons
         search_image=tkinter.PhotoImage(file=search_path)
         savebutton_image=tkinter.PhotoImage(file=savebutton_path)
