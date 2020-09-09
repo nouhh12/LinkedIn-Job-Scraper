@@ -53,12 +53,12 @@ class Locater:
             database="mydatabase")
         #Create a cursor for the database
         mycursor=mydb.cursor(buffered=True)
-        #To have a new empty table on every run of script
-        sql = "DROP TABLE IF EXISTS companies"
-        mycursor.execute(sql)
-        #To create the new table on every run
+        #To create the new table if it doesn't exist
         #VARCHAR is used as string length is unknown so CHAR can't be used 
-        mycursor.execute("CREATE TABLE companies (Name VARCHAR(255), Offer VARCHAR(255), Date VARCHAR(255), Rating VARCHAR(255), Review_Count VARCHAR(255), Link VARCHAR(255))")
+        mycursor.execute("CREATE TABLE IF NOT EXISTS companies (Name VARCHAR(255), Offer VARCHAR(255), Date VARCHAR(255), Rating VARCHAR(255), Review_Count VARCHAR(255), Link VARCHAR(255))")
+        #To have a new empty table on every run of script
+        sql = "TRUNCATE TABLE companies"
+        mycursor.execute(sql)
         val=[]
         #Scraping ranking of each company with a retrieved job offer
         for i in range(len(offer_date)):
